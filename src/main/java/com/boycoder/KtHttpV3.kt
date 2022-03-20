@@ -26,7 +26,6 @@ class KtCall<T : Any>(
     private val type: Type
 ) {
     fun call(callback: Callback<T>): Call {
-        Thread.sleep(2000)
         call.enqueue(object : okhttp3.Callback {
             override fun onFailure(call: Call, e: IOException) {
                 callback.onFail(e)

@@ -31,13 +31,6 @@ interface ApiServiceV5 {
         @Field("lang") lang: String,
         @Field("since") since: String
     ): RepoList
-
-
-    @GET("/repo")
-    fun reposFlow(
-        @Field("lang") lang: String,
-        @Field("since") since: String
-    ): Flow<RepoList>
 }
 
 object KtHttpV5 {
@@ -197,6 +190,7 @@ fun main() = runBlocking {
 
 private suspend fun testAsFlow() =
     KtHttpV5.create(ApiServiceV5::class.java)
+         // 这里构造的还是ktCall<RepoList>
         .repos(lang = "Kotlin", since = "weekly")
         .asFlow()
         .catch { println("Catch: $it") }

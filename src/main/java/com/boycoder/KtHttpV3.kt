@@ -15,7 +15,7 @@ import java.lang.reflect.Proxy
 import java.lang.reflect.Type
 
 
-interface Callback<T : Any> {
+ interface Callback<T : Any> {
     fun onSuccess(data: T)
     fun onFail(throwable: Throwable)
 }

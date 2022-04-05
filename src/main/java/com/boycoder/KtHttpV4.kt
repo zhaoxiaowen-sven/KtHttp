@@ -62,7 +62,7 @@ fun main() = runBlocking {
     }
     delay(10L)
 
-    deferred.cancel()
+//    deferred.cancel()
     println("Time cancel: ${System.currentTimeMillis() - start}")
 
     try {
